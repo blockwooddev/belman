@@ -7,10 +7,11 @@ disable-model-invocation: true
 
 BRANCH = $0
 MSG = $1
-1. `git pull origin $BRANCH`
-2. `git commit -m "[$BRANCH] $MSG`
-3. `git push origin $BRANCH`
-4. Return the pr_url from this to the caller: 
+1. If no $MSG was provided, analyze the diff of the staged files and write a brief, one-sentence summary. Do not mention yourself.
+2. `git pull origin $BRANCH`
+3. `git commit -m "[$BRANCH] $MSG`
+4. `git push origin $BRANCH`
+5. Return the pr_url from this to the caller: 
 ```shell
   github_url=`git remote get-url origin`
   branch_name=`git symbolic-ref HEAD | cut -d"/" -f 3,4`;
