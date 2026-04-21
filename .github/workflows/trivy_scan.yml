@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Run Trivy scanner without cache
-      uses: aquasecurity/trivy-action@0.70.0
+      uses: aquasecurity/trivy-action@0.35.0
       with:
         scan-type: 'fs'
         scan-ref: '.'
