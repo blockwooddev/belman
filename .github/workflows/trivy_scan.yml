@@ -1,6 +1,9 @@
 name: trivy_scan
 on:
-  pull_request
+  pull_request:
+    branches:
+      - 'releases/**'
+      - 'master'
 jobs:
   trivy_scan:
     name: Trivy Scan
