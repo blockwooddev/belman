@@ -1,0 +1,17 @@
+name: trivy_scan
+on:
+  pull_request:
+    branches:
+      - 'releases/**'
+      - 'master'
+jobs:
+  trivy_scan:
+    name: Trivy Scan
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run Trivy scanner without cache
+      uses: aquasecurity/trivy-action@0.35.0
+      with:
+        scan-type: 'fs'
+        scan-ref: '.'
+        cache: 'false'
